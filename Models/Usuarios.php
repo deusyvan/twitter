@@ -55,7 +55,7 @@ class  Usuarios extends Model{
         
         $sql = $this->db->query($sql);
         
-        var_dump($sql->rowCount());
+        //var_dump($sql->rowCount());
         if($sql->rowCount() > 0){
             $sql = $sql->fetch();
             

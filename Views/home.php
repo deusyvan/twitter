@@ -1,5 +1,8 @@
 <div class="feed">
-	Feeds ...
+	<form method="POST">
+		<textarea class="textareapost" name="msg" ></textarea><br>
+		<input type="submit" value="Enviar"/>
+	</form>
 </div>
 <div class="rightside">
 	<h4>Relacionamentos</h4>

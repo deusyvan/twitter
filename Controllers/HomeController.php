@@ -4,6 +4,7 @@ namespace Controllers;
 use \Core\Controller;
 use Models\Usuarios;
 use Models\Relacionamentos;
+use Models\Posts;
 
 class HomeController extends Controller{
     
@@ -23,6 +24,14 @@ class HomeController extends Controller{
         $array = array(
             'nome' => ''
         );
+        
+        if(isset($_POST['msg']) && !empty($_POST['msg'])){
+            
+            $msg = addslashes($_POST['msg']);
+            $p = new Posts();
+            $p->inserirPost($msg);
+        }
+        
         $u = new Usuarios($_SESSION['twlg']);
         $dados['nome'] = $u->getNome();
         //print_r($dados);
