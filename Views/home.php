@@ -3,8 +3,8 @@
 </div>
 <div class="rightside">
 	<h4>Relacionamentos</h4>
-	<div class="rs_meio">0<br>Seguidores</div>
-	<div class="rs_meio">0<br>Seguindo</div>
+	<div class="rs_meio"><?php echo $qt_seguidores;?><br>Seguidores</div>
+	<div class="rs_meio"><?php echo $qt_seguidos;?><br>Seguindo</div>
 	<div style="clear: both;"></div>
 	
 	<h4>Sugestões de amigos</h4>

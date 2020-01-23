@@ -25,6 +25,8 @@ class HomeController extends Controller{
         $u = new Usuarios($_SESSION['twlg']);
         $dados['nome'] = $u->getNome();
         //print_r($dados);
+        $dados['qt_seguidos'] = $u->countSeguidos();
+        $dados['qt_seguidores'] = $u->countSeguidores();
         
         $this->loadTemplate('home', $dados);
     }

@@ -85,4 +85,19 @@ class  Usuarios extends Model{
         }
     }
     
+    public function countSeguidos()
+    {
+        $sql = "SELECT * FROM relacionamentos WHERE id_seguidor = '".($this->uid)."'";
+        $sql = $this->db->query($sql);
+        
+        return $sql->rowCount();
+    }
+    
+    public function countSeguidores() {
+        $sql = "SELECT * FROM relacionamentos WHERE id_seguido = '".($this->uid)."'";
+        $sql = $this->db->query($sql);
+        
+        return $sql->rowCount();
+    }
+    
 }
