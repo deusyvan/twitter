@@ -100,4 +100,16 @@ class  Usuarios extends Model{
         return $sql->rowCount();
     }
     
+    public function getUsuarios($limite)
+    {
+        $array = array();
+        $sql = "SELECT * FROM usuarios WHERE id != '".($this->uid)."' LIMIT $limite";
+        $sql = $this->db->query($sql);
+        
+        if ($sql->rowCount() > 0) {
+            $array = $sql->fetchAll(\PDO::FETCH_ASSOC);
+        }
+        return $array;
+    }
+    
 }

@@ -27,6 +27,7 @@ class HomeController extends Controller{
         //print_r($dados);
         $dados['qt_seguidos'] = $u->countSeguidos();
         $dados['qt_seguidores'] = $u->countSeguidores();
+        $dados['sugestao'] = $u->getUsuarios(5);
         
         $this->loadTemplate('home', $dados);
     }

@@ -8,17 +8,19 @@
 	<div style="clear: both;"></div>
 	
 	<h4>Sugestões de amigos</h4>
-	<table border="1" width="100%">
+	<table border="0" width="100%">
 		<tr>
 			<td width="80%"></td>
 			<td></td>
 		</tr>
+		<?php foreach ($sugestao as $usuario) : ?>
 		<tr>
-			<td>Usuário X</td>
+			<td><?php echo $usuario['nome'];?></td>
 			<td>
 				<a href="">Seguir</a>
 			</td>
 		</tr>
+		<?php endforeach;?>
 	</table>
 </div>
 
