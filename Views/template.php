@@ -10,7 +10,7 @@
     	<div class="topo">
     		<div class="topoint">
     			<div class="topoleft">TWITTER CLONE</div>
-    			<div class="toporight"><?php //echo $nome;?> - <a href="<?php echo BASE_URL;?>deslogar">Sair</a></div>
+    			<div class="toporight"><?php echo $viewData['nome'];?> - <a href="<?php echo BASE_URL;?>deslogar">Sair</a></div>
     			<div style="clear:both"></div>
     		</div>
     	</div>

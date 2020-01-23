@@ -6,17 +6,26 @@ use Models\Usuarios;
 
 class HomeController extends Controller{
     
-    public function index(){
+    public function __construct()
+    {
+        parent::__construct();
         
         $u = new Usuarios();
         
         if(!$u->isLogged()){
             header("Location: ".BASE_URL."logar");
         }
+    }
+    
+    public function index()
+    {
+        $array = array(
+            'nome' => ''
+        );
+        $u = new Usuarios($_SESSION['twlg']);
+        $dados['nome'] = $u->getNome();
+        //print_r($dados);
         
-        $array = array();
-        
-        
-        $this->loadTemplate('home', $array);
+        $this->loadTemplate('home', $dados);
     }
 }

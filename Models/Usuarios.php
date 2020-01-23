@@ -6,6 +6,17 @@ use PDO;
 
 class  Usuarios extends Model{
     
+    private $uid;
+    
+    public function __construct($id = '')
+    {
+        parent::__construct();
+        
+        if(!empty($id)){
+            $this->uid = $id;
+        }
+    }
+    
     public function isLogged(){
         if(isset($_SESSION['twlg']) && !empty($_SESSION['twlg'])){
             return true;
@@ -54,6 +65,23 @@ class  Usuarios extends Model{
             
         }else{
             return false;
+        }
+    }
+    
+    public function getNome()
+    {
+        if (!empty($this->uid)){
+            $sql = "SELECT nome FROM usuarios WHERE id = '".($this->uid)."'";
+            //$sql = "SELECT * FROM usuarios WHERE id = '{$this->uid}'";
+            //echo $sql;exit;
+            
+            $sql = $this->db->query($sql);
+            
+            if ($sql->rowCount() > 0){
+                $sql = $sql->fetch();
+                //print_r($sql);exit;
+                return $sql['nome'];
+            }
         }
     }
     

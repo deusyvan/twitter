@@ -6,7 +6,13 @@ use Models\Usuarios;
 
 class LoginController extends Controller{
     
-    public function index(){
+    public function __construct()
+    {
+        parent::__construct();
+    }
+    
+    public function index()
+    {
         $dados = array();
         
         if(isset($_POST['email']) && !empty($_POST['email'])){
@@ -44,6 +50,7 @@ class LoginController extends Controller{
                     $_SESSION['twlg'] = $u->inserirUsuario($nome, $email, $senha);
                     
                     header("Location: ".BASE_URL);
+                    
                 } else {
                     $dados['aviso'] = "Este usuário já existe!";
                 }
