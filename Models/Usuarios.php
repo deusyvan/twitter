@@ -103,7 +103,15 @@ class  Usuarios extends Model{
     public function getUsuarios($limite)
     {
         $array = array();
-        $sql = "SELECT * FROM usuarios WHERE id != '".($this->uid)."' LIMIT $limite";
+        $sql = "SELECT 
+                
+                *,(
+                    select count(*) from relacionamentos 
+                    where relacionamentos.id_seguidor = '".($this->uid)."' 
+                    and relacionamentos.id_seguido = usuarios.id
+                ) as seguido
+                
+                FROM usuarios WHERE id != '".($this->uid)."' LIMIT $limite";
         $sql = $this->db->query($sql);
         
         if ($sql->rowCount() > 0) {

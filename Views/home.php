@@ -17,7 +17,11 @@
 		<tr>
 			<td><?php echo $usuario['nome'];?></td>
 			<td>
-				<a href="">Seguir</a>
+				<?php if($usuario['seguido'] == '0'): ?>
+				<a href="<?php echo BASE_URL.'seguir/'.$usuario['id'];?>">Seguir</a>
+				<?php else: ?>
+				<a href="<?php echo BASE_URL.'deseguir/'.$usuario['id'];?>">Deseguir</a>
+				<?php endif;?>
 			</td>
 		</tr>
 		<?php endforeach;?>
