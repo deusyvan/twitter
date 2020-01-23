@@ -1,6 +1,4 @@
-<h3>Lista</h3>
+<h3>Área interna do Twitter</h3>
 
-<?php 
-foreach ($lista as $item){
-    echo "Nome: ".$item['name']."<br/>";
-}
+
+

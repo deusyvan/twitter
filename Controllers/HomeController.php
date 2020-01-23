@@ -7,9 +7,15 @@ use Models\Usuarios;
 class HomeController extends Controller{
     
     public function index(){
+        
+        $u = new Usuarios();
+        
+        if(!$u->isLogged()){
+            header("Location: ".BASE_URL."logar");
+        }
+        
         $array = array();
-        $usuarios = new Usuarios();
-        $array['lista'] = $usuarios->getAll();
+        
         
         $this->loadTemplate('home', $array);
     }

@@ -1,1 +1,1 @@
-alert("Foi carregado!");
+//alert("Foi carregado!");
