@@ -24,11 +24,11 @@ class HomeController extends Controller{
         $array = array(
             'nome' => ''
         );
+        $p = new Posts();
         
         if(isset($_POST['msg']) && !empty($_POST['msg'])){
             
             $msg = addslashes($_POST['msg']);
-            $p = new Posts();
             $p->inserirPost($msg);
         }
         
@@ -38,6 +38,10 @@ class HomeController extends Controller{
         $dados['qt_seguidos'] = $u->countSeguidos();
         $dados['qt_seguidores'] = $u->countSeguidores();
         $dados['sugestao'] = $u->getUsuarios(5);
+        
+        $lista = $u->getSeguidos();
+        $lista[]= $_SESSION['twlg'];
+        $dados['feed'] = $p->getFeed($lista, 10);
         
         $this->loadTemplate('home', $dados);
     }
